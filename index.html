@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Compressor</title>
+
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+</head>
+
+<body>
+
+<h1>🗜️ Image Compressor</h1>
+
+<div class="controls">
+  <button id="browseFolderBtn">Select Folder</button>
+  <button id="browseFilesBtn">Select Files</button>
+</div>
+
+<div id="dragDropZone" class="dropzone">📂 Drag & Drop Images Here</div>
+
+<input type="file" id="folderInput" webkitdirectory multiple hidden>
+<input type="file" id="filesInput" multiple accept="image/*" hidden>
+
+<div class="controls">
+  <strong>Reduce File Size By</strong>
+  <input type="range" id="reduceRange" min="10" max="90" value="60">
+  <input type="number" id="reduceInput" min="10" max="90" value="60"> %
+</div>
+
+<div class="controls">
+  <label><input type="checkbox" id="includeOriginals" checked> Include Originals</label>
+  <label><input type="checkbox" id="zipOutput" checked> ZIP Output</label>
+</div>
+
+<button id="downloadAll" disabled>Download</button>
+
+<div id="preview" class="preview"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
