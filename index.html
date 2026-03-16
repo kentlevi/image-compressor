@@ -1,43 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Image Compressor</title>
-
-<link rel="stylesheet" href="styles.css">
-<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Compressor</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 </head>
-
 <body>
+  <header class="hero">
+    <div class="hero__panel">
+      <p class="eyebrow">Browser Compression</p>
+      <h1>Image Compressor</h1>
+      <p class="hero__copy">Compress folders or batches of images locally in the browser, preview the results, and download a ZIP when ready.</p>
 
-<h1>🗜️ Image Compressor</h1>
+      <div class="hero__actions">
+        <button id="browseFolderBtn" type="button">Select Folder</button>
+        <button id="browseFilesBtn" type="button" class="button-secondary">Select Files</button>
+      </div>
+    </div>
+  </header>
 
-<div class="controls">
-  <button id="browseFolderBtn">Select Folder</button>
-  <button id="browseFilesBtn">Select Files</button>
-</div>
+  <main class="page">
+    <section class="workspace">
+      <button id="dragDropZone" class="dropzone" type="button">
+        <span class="dropzone__icon" aria-hidden="true">+</span>
+        <span class="dropzone__title">Drop images here</span>
+        <span class="dropzone__copy">Or click to browse individual files</span>
+      </button>
 
-<div id="dragDropZone" class="dropzone">📂 Drag & Drop Images Here</div>
+      <input type="file" id="folderInput" webkitdirectory multiple hidden>
+      <input type="file" id="filesInput" multiple accept="image/*" hidden>
 
-<input type="file" id="folderInput" webkitdirectory multiple hidden>
-<input type="file" id="filesInput" multiple accept="image/*" hidden>
+      <section class="settings">
+        <div class="settings__row">
+          <div>
+            <p class="settings__label">Target Reduction</p>
+            <p class="settings__hint">The compressor lowers quality until the file is near the target size.</p>
+          </div>
 
-<div class="controls">
-  <strong>Reduce File Size By</strong>
-  <input type="range" id="reduceRange" min="10" max="90" value="60">
-  <input type="number" id="reduceInput" min="10" max="90" value="60"> %
-</div>
+          <div class="range-control">
+            <input type="range" id="reduceRange" min="10" max="90" value="60">
+            <label class="number-control" for="reduceInput">
+              <input type="number" id="reduceInput" min="10" max="90" value="60">
+              <span>%</span>
+            </label>
+          </div>
+        </div>
 
-<div class="controls">
-  <label><input type="checkbox" id="includeOriginals" checked> Include Originals</label>
-  <label><input type="checkbox" id="zipOutput" checked> ZIP Output</label>
-</div>
+        <div class="settings__row settings__row--compact">
+          <label><input type="checkbox" id="includeOriginals" checked> Include originals in downloads</label>
+          <label><input type="checkbox" id="zipOutput" checked> Download as ZIP</label>
+        </div>
+      </section>
 
-<button id="downloadAll" disabled>Download</button>
+      <section class="summary">
+        <div>
+          <p class="summary__label">Session</p>
+          <h2 id="summaryTitle">No images selected</h2>
+        </div>
+        <p id="summaryMeta" class="summary__meta">Choose a folder, files, or drag images into the workspace.</p>
+      </section>
 
-<div id="preview" class="preview"></div>
+      <div id="statusMessage" class="status-message" role="status" aria-live="polite"></div>
 
-<script src="script.js"></script>
+      <div class="download-bar">
+        <button id="downloadAll" type="button" disabled>Download Results</button>
+      </div>
+
+      <div id="preview" class="preview"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>

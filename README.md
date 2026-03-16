@@ -26,9 +26,19 @@
 
 ## File Structure
 - `index.html`
+- `styles.scss`
 - `styles.css`
 - `script.js`
 - `README.md`
+
+## Styling
+- `styles.scss` is the source stylesheet
+- `styles.css` is the compiled browser-ready output loaded by `index.html`
+- To compile styles locally:
+  - `npm install`
+  - `npm run build:css`
+- To watch for changes while editing:
+  - `npm run watch:css`
 
 ## Usage
 1. Open `index.html` in a modern web browser

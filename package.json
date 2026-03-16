@@ -1,0 +1,11 @@
+{
+  "name": "image-compressor",
+  "private": true,
+  "scripts": {
+    "build:css": "sass styles.scss styles.css --no-source-map",
+    "watch:css": "sass --watch styles.scss:styles.css --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.86.0"
+  }
+}

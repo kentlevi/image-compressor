@@ -1,0 +1,378 @@
+$bg: #f4efe6;
+$bg-strong: #e9dfd1;
+$surface: rgba(255, 252, 247, 0.92);
+$surface-strong: #fffaf3;
+$text: #2c2218;
+$muted: #716253;
+$accent: #d56b1f;
+$accent-strong: #a74410;
+$success: #227a53;
+$warning: #a86f10;
+$danger: #b64545;
+$border: rgba(76, 52, 31, 0.12);
+$shadow: 0 24px 60px rgba(70, 43, 18, 0.12);
+
+@mixin panel {
+  border: 1px solid $border;
+  border-radius: 26px;
+  background: $surface;
+  box-shadow: $shadow;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  color: $text;
+  background:
+    radial-gradient(circle at top left, rgba(213, 107, 31, 0.18), transparent 28%),
+    linear-gradient(180deg, $bg 0%, #efe5d8 100%);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.hero {
+  padding: 28px 20px 12px;
+
+  &__panel {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 32px;
+    border: 1px solid $border;
+    border-radius: 32px;
+    background: linear-gradient(135deg, rgba(255, 250, 243, 0.96), rgba(241, 230, 213, 0.96));
+    box-shadow: $shadow;
+  }
+
+  &__copy {
+    max-width: 680px;
+    margin: 18px 0 0;
+    color: $muted;
+    line-height: 1.7;
+    font-size: 1.06rem;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+}
+
+.page {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 18px 0 56px;
+}
+
+.workspace {
+  display: grid;
+  gap: 20px;
+}
+
+.eyebrow,
+.settings__label,
+.summary__label {
+  margin: 0;
+  color: $accent-strong;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+}
+
+h1,
+h2,
+.folder-title {
+  margin: 0;
+}
+
+h1 {
+  margin-top: 12px;
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  line-height: 0.94;
+  max-width: 8ch;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 22px;
+  color: #fffaf3;
+  background: linear-gradient(135deg, $accent, $accent-strong);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 12px 24px rgba(165, 84, 19, 0.22);
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+.button-secondary {
+  color: $text;
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.dropzone,
+.settings,
+.summary,
+.folder-group,
+.download-bar {
+  @include panel;
+}
+
+.dropzone {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 42px 20px;
+  color: $text;
+  background: linear-gradient(135deg, rgba(255, 247, 237, 0.98), rgba(255, 255, 255, 0.9));
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  &.dragover {
+    border-color: rgba(213, 107, 31, 0.45);
+    background: linear-gradient(135deg, rgba(255, 238, 219, 0.98), rgba(255, 250, 243, 0.94));
+  }
+
+  &__icon {
+    display: inline-grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 999px;
+    color: #fffaf3;
+    background: linear-gradient(135deg, $accent, $accent-strong);
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  &__title {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  &__copy {
+    color: $muted;
+  }
+}
+
+.settings {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: center;
+    justify-content: space-between;
+
+    &--compact {
+      justify-content: start;
+    }
+  }
+
+  &__hint {
+    margin: 6px 0 0;
+    line-height: 1.6;
+    color: $muted;
+  }
+}
+
+.range-control {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+input[type="range"] {
+  width: min(340px, 70vw);
+  accent-color: $accent;
+}
+
+.number-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid $border;
+  border-radius: 999px;
+  background: $surface-strong;
+}
+
+input[type="number"] {
+  width: 72px;
+  border: 0;
+  background: transparent;
+  color: $text;
+  outline: none;
+}
+
+label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+input[type="checkbox"] {
+  accent-color: $accent;
+}
+
+.summary,
+.download-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px;
+}
+
+.summary__meta,
+.status-message,
+.card__meta {
+  color: $muted;
+}
+
+.status-message {
+  min-height: 24px;
+  padding: 0 6px;
+
+  &--loading,
+  &--warning {
+    color: $warning;
+  }
+
+  &--success {
+    color: $success;
+  }
+
+  &--error {
+    color: $danger;
+  }
+
+  &--empty {
+    color: $muted;
+  }
+}
+
+.preview {
+  display: grid;
+  gap: 22px;
+}
+
+.folder-group {
+  padding: 22px;
+}
+
+.folder-title {
+  font-size: 1.2rem;
+  color: $accent-strong;
+}
+
+.folder-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.card {
+  padding: 14px;
+  border: 1px solid rgba(76, 52, 31, 0.08);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.74);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &--error {
+    border-color: rgba(182, 69, 69, 0.25);
+    background: rgba(255, 244, 244, 0.95);
+  }
+
+  &__name,
+  &__message {
+    margin: 0 0 10px;
+    font-weight: 700;
+  }
+
+  &__message {
+    color: $danger;
+  }
+
+  &__meta {
+    margin: 8px 0 0;
+    line-height: 1.5;
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 14px;
+    background: #eadfce;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    padding-top: 18px;
+
+    &__panel {
+      padding: 24px;
+    }
+
+    &__actions {
+      width: 100%;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  .summary,
+  .download-bar,
+  .settings__row {
+    align-items: start;
+  }
+
+  input[type="range"] {
+    width: 100%;
+  }
+
+  .range-control {
+    width: 100%;
+  }
+
+  .download-bar button {
+    width: 100%;
+  }
+}
