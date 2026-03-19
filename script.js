@@ -20,7 +20,7 @@ let reduceTimer = null;
 
 function setStatus(message = "", type = "") {
   statusMessage.textContent = message;
-  statusMessage.className = `status-message${type ? ` status-message--${type}` : ""}`;
+  statusMessage.className = `status-message${type ? ` status-message-${type}` : ""}`;
 }
 
 function setSummary(title, meta) {
@@ -194,26 +194,26 @@ function renderProcessedGroups() {
 
     group.items.forEach((item) => {
       const card = document.createElement("article");
-      card.className = `card${item.error ? " card--error" : ""}`;
+      card.className = `card${item.error ? " card-error" : ""}`;
 
       if (item.error) {
         card.innerHTML = `
-          <p class="card__name">${item.name}</p>
-          <p class="card__message">Compression failed</p>
-          <p class="card__meta">${item.error}</p>
+          <p class="card-name">${item.name}</p>
+          <p class="card-message">Compression failed</p>
+          <p class="card-meta">${item.error}</p>
         `;
       } else if (!item.compressedBlob) {
         card.innerHTML = `
-          <p class="card__name">${item.name}</p>
-          <p class="card__message">Processing...</p>
-          <p class="card__meta">Generating preview and compressed output.</p>
+          <p class="card-name">${item.name}</p>
+          <p class="card-message">Processing...</p>
+          <p class="card-meta">Generating preview and compressed output.</p>
         `;
       } else {
         card.innerHTML = `
-          <p class="card__name">${item.name}</p>
+          <p class="card-name">${item.name}</p>
           <img src="${item.previewUrl}" alt="${item.name}">
-          <p class="card__meta">${formatSize(item.originalFile.size)} to ${formatSize(item.compressedBlob.size)}</p>
-          <p class="card__meta">Reduced by ${item.reductionPercent}%</p>
+          <p class="card-meta">${formatSize(item.originalFile.size)} to ${formatSize(item.compressedBlob.size)}</p>
+          <p class="card-meta">Reduced by ${item.reductionPercent}%</p>
         `;
       }
 

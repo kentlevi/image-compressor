@@ -9,12 +9,12 @@
 </head>
 <body>
   <header class="hero">
-    <div class="hero__panel">
+    <div class="hero-panel">
       <p class="eyebrow">Browser Compression</p>
       <h1>Image Compressor</h1>
-      <p class="hero__copy">Compress folders or batches of images locally in the browser, preview the results, and download a ZIP when ready.</p>
+      <p class="hero-copy">Compress folders or batches of images locally in the browser, preview the results, and download a ZIP when ready.</p>
 
-      <div class="hero__actions">
+      <div class="hero-actions">
         <button id="browseFolderBtn" type="button">Select Folder</button>
         <button id="browseFilesBtn" type="button" class="button-secondary">Select Files</button>
       </div>
@@ -24,19 +24,19 @@
   <main class="page">
     <section class="workspace">
       <button id="dragDropZone" class="dropzone" type="button">
-        <span class="dropzone__icon" aria-hidden="true">+</span>
-        <span class="dropzone__title">Drop images here</span>
-        <span class="dropzone__copy">Or click to browse individual files</span>
+        <span class="dropzone-icon" aria-hidden="true">+</span>
+        <span class="dropzone-title">Drop images here</span>
+        <span class="dropzone-copy">Or click to browse individual files</span>
       </button>
 
       <input type="file" id="folderInput" webkitdirectory multiple hidden>
       <input type="file" id="filesInput" multiple accept="image/*" hidden>
 
       <section class="settings">
-        <div class="settings__row">
+        <div class="settings-row">
           <div>
-            <p class="settings__label">Target Reduction</p>
-            <p class="settings__hint">The compressor lowers quality until the file is near the target size.</p>
+            <p class="settings-label">Target Reduction</p>
+            <p class="settings-hint">The compressor lowers quality until the file is near the target size.</p>
           </div>
 
           <div class="range-control">
@@ -48,7 +48,7 @@
           </div>
         </div>
 
-        <div class="settings__row settings__row--compact">
+        <div class="settings-row settings-row-compact">
           <label><input type="checkbox" id="includeOriginals" checked> Include originals in downloads</label>
           <label><input type="checkbox" id="zipOutput" checked> Download as ZIP</label>
         </div>
@@ -56,10 +56,10 @@
 
       <section class="summary">
         <div>
-          <p class="summary__label">Session</p>
+          <p class="summary-label">Session</p>
           <h2 id="summaryTitle">No images selected</h2>
         </div>
-        <p id="summaryMeta" class="summary__meta">Choose a folder, files, or drag images into the workspace.</p>
+        <p id="summaryMeta" class="summary-meta">Choose a folder, files, or drag images into the workspace.</p>
       </section>
 
       <div id="statusMessage" class="status-message" role="status" aria-live="polite"></div>

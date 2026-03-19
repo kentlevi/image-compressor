@@ -16,9 +16,10 @@ input {
 }
 
 .hero {
-  padding: 28px 20px 12px;
+  padding: 20px 0 0;
 }
-.hero__panel {
+
+.hero-panel {
   width: min(1120px, 100% - 32px);
   margin: 0 auto;
   padding: 32px;
@@ -27,18 +28,18 @@ input {
   background: linear-gradient(135deg, rgba(255, 250, 243, 0.96), rgba(241, 230, 213, 0.96));
   box-shadow: 0 24px 60px rgba(70, 43, 18, 0.12);
 }
-.hero__copy {
-  max-width: 680px;
-  margin: 18px 0 0;
+
+.hero-copy {
+  margin: 10px 0 0;
   color: #716253;
-  line-height: 1.7;
-  font-size: 1.06rem;
+  font-size: 0.95rem;
 }
-.hero__actions {
+
+.hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 28px;
+  margin-top: 18px;
 }
 
 .page {
@@ -53,13 +54,14 @@ input {
 }
 
 .eyebrow,
-.settings__label,
-.summary__label {
-  margin: 0;
+.settings-label,
+.summary-label {
+  margin: 0 0 10px;
   color: #a74410;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-size: 0.8rem;
+  font-size: 0.74rem;
+  font-weight: 700;
 }
 
 h1,
@@ -68,11 +70,9 @@ h2,
   margin: 0;
 }
 
-h1 {
-  margin-top: 12px;
-  font-size: clamp(2.6rem, 6vw, 4.6rem);
-  line-height: 0.94;
-  max-width: 8ch;
+.hero-panel h1 {
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  line-height: 0.96;
 }
 
 button {
@@ -127,7 +127,8 @@ button:disabled {
   border-color: rgba(213, 107, 31, 0.45);
   background: linear-gradient(135deg, rgba(255, 238, 219, 0.98), rgba(255, 250, 243, 0.94));
 }
-.dropzone__icon {
+
+.dropzone-icon {
   display: inline-grid;
   place-items: center;
   width: 64px;
@@ -138,11 +139,13 @@ button:disabled {
   font-size: 2rem;
   line-height: 1;
 }
-.dropzone__title {
+
+.dropzone-title {
   font-size: 1.4rem;
   font-weight: 700;
 }
-.dropzone__copy {
+
+.dropzone-copy {
   color: #716253;
 }
 
@@ -151,17 +154,20 @@ button:disabled {
   gap: 18px;
   padding: 22px;
 }
-.settings__row {
+
+.settings-row {
   display: flex;
   flex-wrap: wrap;
   gap: 18px;
   align-items: center;
   justify-content: space-between;
 }
-.settings__row--compact {
+
+.settings-row-compact {
   justify-content: start;
 }
-.settings__hint {
+
+.settings-hint {
   margin: 6px 0 0;
   line-height: 1.6;
   color: #716253;
@@ -217,9 +223,9 @@ input[type=checkbox] {
   padding: 22px;
 }
 
-.summary__meta,
+.summary-meta,
 .status-message,
-.card__meta {
+.card-meta {
   color: #716253;
 }
 
@@ -227,16 +233,21 @@ input[type=checkbox] {
   min-height: 24px;
   padding: 0 6px;
 }
-.status-message--loading, .status-message--warning {
+
+.status-message-loading,
+.status-message-warning {
   color: #a86f10;
 }
-.status-message--success {
+
+.status-message-success {
   color: #227a53;
 }
-.status-message--error {
+
+.status-message-error {
   color: #b64545;
 }
-.status-message--empty {
+
+.status-message-empty {
   color: #716253;
 }
 
@@ -271,45 +282,51 @@ input[type=checkbox] {
 .card:hover {
   transform: translateY(-2px);
 }
-.card--error {
-  border-color: rgba(182, 69, 69, 0.25);
-  background: rgba(255, 244, 244, 0.95);
-}
-.card__name, .card__message {
-  margin: 0 0 10px;
-  font-weight: 700;
-}
-.card__message {
-  color: #b64545;
-}
-.card__meta {
-  margin: 8px 0 0;
-  line-height: 1.5;
-}
 .card img {
   width: 100%;
   aspect-ratio: 4/3;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 14px;
   background: #eadfce;
+}
+
+.card-error {
+  border-color: rgba(182, 69, 69, 0.25);
+  background: rgba(255, 244, 244, 0.95);
+}
+
+.card-name,
+.card-message {
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+.card-message {
+  color: #b64545;
+}
+
+.card-meta {
+  margin: 8px 0 0;
+  line-height: 1.5;
 }
 
 @media (max-width: 720px) {
   .hero {
     padding-top: 18px;
   }
-  .hero__panel {
+  .hero-panel {
     padding: 24px;
   }
-  .hero__actions {
+  .hero-actions {
     width: 100%;
   }
-  .hero__actions button {
+  .hero-actions button {
     width: 100%;
   }
   .summary,
   .download-bar,
-  .settings__row {
+  .settings-row {
     align-items: start;
   }
   input[type=range] {
@@ -321,4 +338,4 @@ input[type=checkbox] {
   .download-bar button {
     width: 100%;
   }
-}
+}/*# sourceMappingURL=styles.css.map */
